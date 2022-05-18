@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col-xs-12">
-        <img [src]="recipe.imagepath"
-         alt="{{ recipe.name }}" 
+        <img [src]="recipes.imagepath"
+         alt="{{ recipes.name }}" 
          class="img-responsive"
          style="max-height: 300px;">
     </div>
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <h1>{{ recipe.name }}</h1>
+        <h1>{{ recipes.name }}</h1>
     </div>
 </div>
 <div class="row">
@@ -20,10 +20,11 @@
             </button>
             <ul class="dropdown-menu">
                 
-                <li><a href="#">Add Ingredients to shopping list</a></li>
-                <li><a href="#">Edit Recipe</a></li>
-                <li><a href="#">Delete Recipe</a></li>
-               
+                <li><a (click)="onAddToShoppingList()" style="cursor:pointer;">To shopping List</a></li>
+
+                <li><a style="cursor:pointer;"(click)="onEditRecipe()">Edit Recipe</a></li>
+
+                <li><a style="cursor:pointer;">Delete Recipe</a></li>
             </ul>
         </div>
     </div>
@@ -31,11 +32,17 @@
 <div class="row">
     <div class="col-xs-12">
         Description
-        {{ recipe.description }}
+        {{ recipes.description }}
     </div>
 </div>
 <div class="row">
     <div class="col-xs-12">
-        Ingredients
+        <ul class="list-group">
+            <li
+            class="list-group-item"
+            *ngFor="let ingredient of recipes.ingredients">
+            {{ ingredient.name }} - {{ ingredient.amount }}
+            </li>
+        </ul>
     </div>
 </div>

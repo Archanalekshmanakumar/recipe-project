@@ -1,8 +1,9 @@
 
-import { Component, OnInit, Input, EventEmitter, Output  } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 // import { EventEmitter } from 'stream';
 // import { Recipes } from '../../recipe.model';
 import { Recipes } from '../../recipe.model';
+
 
 @Component({
   selector: 'app-recipes-item',
@@ -11,20 +12,31 @@ import { Recipes } from '../../recipe.model';
  
 })
 export class RecipesItemComponent implements OnInit {
+  
   @Input() recipe !: Recipes;
-  @Output() recipeSelected = new EventEmitter<void>();
+  @Input() index!: number;
+  ngOnInit() {
+    // throw new Error('Method not implemented.');
+  }
+  
+  //recipeSelected: any;
+  //@Output() recipeSelected = new EventEmitter<void>();
 
-  constructor() {  
+  // constructor(private recipeService:RecipeService) {  
     
     
   }
 
-  ngOnInit(): void {
+//   ngOnInit()
 
-  }
-  onSelected(){
-    this.recipeSelected.emit();
-    
-  }
+  
 
-}
+// function ngOnInit() {
+//   throw new Error('Function not implemented.');
+// }
+//   onSelected(){
+//     //this.recipeSelected.emit();
+//     this.recipeService.recipeSelected.emit(this.recipe);
+//   }
+
+// }

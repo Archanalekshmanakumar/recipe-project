@@ -9,10 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'newproject';
-  loadedFeature = 'recipe'
-  onNavigate(feature : string){
-    this.loadedFeature = feature;
+  // loadedFeature = 'recipe'
+  // onNavigate(feature : string){
+  //   this.loadedFeature = feature;
 
-  }
+  // }
 
 }
