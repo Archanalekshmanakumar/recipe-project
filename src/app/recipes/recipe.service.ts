@@ -9,24 +9,29 @@ import { Recipes } from'./recipe.model';
  export class RecipeService {
    recipesChanged=new Subject<Recipes[]>();
  
-     private recipes: Recipes[] = [
-        new Recipes('crispy fried chicken',
-        'this is a tasty recipe',
-        'https://th.bing.com/th/id/OIP.OajGreIHuqBpGP9f53gMFwHaE7?pid=ImgDet&rs=1',
-        [
-          new ingredient('Meat',1),
-          new ingredient('French Fries',20)
-        ]),
-        new Recipes('Mojito Cocktail',
-        'delicous recipe',
-        'https://wallsdesk.com/wp-content/uploads/2017/01/Mojito-Wallpapers-HD.jpg',
-        [
-          new ingredient('Buns',2),
-          new ingredient('fish',1)
-        ]),
-      ];
-      constructor(private slService:ShoppingListService){
+    //  private recipes: Recipes[] = [
+    //     new Recipes('crispy fried chicken',
+    //     'this is a tasty recipe',
+    //     'https://th.bing.com/th/id/OIP.OajGreIHuqBpGP9f53gMFwHaE7?pid=ImgDet&rs=1',
+    //     [
+    //       new ingredient('Meat',1),
+    //       new ingredient('French Fries',20)
+    //     ]),
+    //     new Recipes('Mojito Cocktail',
+    //     'delicous recipe',
+    //     'https://wallsdesk.com/wp-content/uploads/2017/01/Mojito-Wallpapers-HD.jpg',
+    //     [
+    //       new ingredient('Buns',2),
+    //       new ingredient('fish',1)
+    //     ]),
+     // ];
+     private recipes: Recipes[]=[];
+      constructor(private slService:ShoppingListService){}
         
+      setRecipes(recipes: Recipes[]) {
+        this.recipes=recipes;
+        this.recipesChanged.next(this.recipes.slice());
+
       }
 
   

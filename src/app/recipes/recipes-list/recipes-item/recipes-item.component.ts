@@ -13,7 +13,7 @@ import { Recipes } from '../../recipe.model';
 })
 export class RecipesItemComponent implements OnInit {
   
-  @Input() recipe !: Recipes;
+  @Input() recipe!: Recipes;
   @Input() index!: number;
   ngOnInit() {
     // throw new Error('Method not implemented.');
