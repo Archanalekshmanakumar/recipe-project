@@ -5,6 +5,7 @@ export class Recipes{
     public description:string;
     public imagepath: string;
     public ingredients: ingredient[] 
+    static map: any;
 
     constructor(name:string, desc:string, imagepath:string, ingredients: ingredient[]){
         this.name=name;

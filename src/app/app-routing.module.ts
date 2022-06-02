@@ -6,10 +6,13 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { ShoppingListComponent }from './shopping-list/shopping-list.component';
 import { RecipesEditComponent } from './recipes/recipes-edit/recipes-edit.component';
 import { RecipeResolverService } from './recipes/recipes-resolver.service';
-import { Authcomponent } from './auth/auth.component';
+import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   { path: '',redirectTo:'/recipes',pathMatch:'full' },
-  { path: 'recipes',component:RecipesComponent,children: [
+  { path: 'recipes',component:RecipesComponent,
+  canActivate:[AuthGuard],
+  children: [
     { path:'',component: RecipeStartComponent },
     { path: 'new',component:RecipesEditComponent},
     {
@@ -22,7 +25,7 @@ const routes: Routes = [
   },
   ] },
   { path: 'shopping-list',component: ShoppingListComponent },
-  { path: 'auth',component:Authcomponent}
+  { path: 'auth',component:AuthComponent}
   
 ];
 
